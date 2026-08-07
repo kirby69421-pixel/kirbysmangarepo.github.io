@@ -84,6 +84,7 @@ function loadReader(){
         let chapterFolder =
         chapters[chapter].folder;
         
+        console.log(img.src);
         
         img.src =
         `manga/${manga}/${chapterFolder}/image${String(i).padStart(3,"0")}.webp`;
