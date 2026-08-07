@@ -120,3 +120,39 @@ function nextChapter(){
     }
 
 }
+
+
+
+const themeButton =
+document.getElementById("themeButton");
+
+
+function setTheme(){
+
+    if(localStorage.theme=="light"){
+
+        document.body.classList.add("light");
+
+    }
+
+}
+
+
+setTheme();
+
+
+
+themeButton.onclick=function(){
+
+    document.body.classList.toggle("light");
+
+
+    if(document.body.classList.contains("light"))
+
+        localStorage.theme="light";
+
+    else
+
+        localStorage.theme="dark";
+
+};
