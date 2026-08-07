@@ -1,0 +1,122 @@
+let manga;
+let chapter;
+
+let library;
+
+
+const params = new URLSearchParams(window.location.search);
+
+manga = params.get("manga");
+chapter = Number(params.get("chapter"));
+
+
+
+fetch("library.json")
+.then(r => r.json())
+.then(data => {
+
+    library = data;
+
+    loadReader();
+
+});
+
+
+
+function loadReader(){
+
+    document.getElementById("title").innerText =
+        manga + " - Chapter " + chapter;
+
+
+    let chapters =
+        library[manga].chapters;
+
+
+    let select =
+        document.getElementById("chapterSelect");
+
+
+    select.innerHTML="";
+
+
+    Object.keys(chapters)
+    .sort((a,b)=>a-b)
+    .forEach(c=>{
+
+        let option=document.createElement("option");
+
+        option.value=c;
+        option.text=c;
+
+        if(Number(c)==chapter)
+            option.selected=true;
+
+
+        select.appendChild(option);
+
+    });
+
+
+    select.onchange=function(){
+
+        location.href =
+        `reader.html?manga=${encodeURIComponent(manga)}&chapter=${this.value}`;
+
+    };
+
+
+    let pages=document.getElementById("pages");
+
+    pages.innerHTML="";
+
+
+    let count =
+    chapters[chapter].pages;
+
+
+
+    for(let i=1;i<=count;i++){
+
+        let img=document.createElement("img");
+
+
+        img.src =
+        `manga/${manga}/Chapter ${chapter}/${String(i).padStart(3,"0")}.jpg`;
+
+
+        pages.appendChild(img);
+
+    }
+
+}
+
+
+
+function previousChapter(){
+
+    if(chapter>1){
+
+        location.href =
+        `reader.html?manga=${encodeURIComponent(manga)}&chapter=${chapter-1}`;
+
+    }
+
+}
+
+
+
+function nextChapter(){
+
+    let max =
+    Object.keys(library[manga].chapters).length;
+
+
+    if(chapter < max){
+
+        location.href =
+        `reader.html?manga=${encodeURIComponent(manga)}&chapter=${chapter+1}`;
+
+    }
+
+}
