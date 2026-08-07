@@ -158,3 +158,118 @@ themeButton.onclick=function(){
         localStorage.theme="dark";
 
 };
+
+
+// =========================================
+// MOBILE PAGE TAP NAVIGATION
+// =========================================
+
+const mobileLeftZone =
+    document.getElementById("mobileLeftZone");
+
+const mobileRightZone =
+    document.getElementById("mobileRightZone");
+
+
+if (mobileLeftZone && mobileRightZone) {
+
+    mobileLeftZone.addEventListener("click", () => {
+
+        // Find all currently loaded pages
+        const pages =
+            document.querySelectorAll("#pages img");
+
+        if (pages.length === 0) return;
+
+        /*
+         * Determine which page is currently
+         * closest to the middle of the screen.
+         */
+
+        let currentPage = 0;
+        let smallestDistance = Infinity;
+
+        const screenMiddle =
+            window.innerHeight / 2;
+
+        pages.forEach((page, index) => {
+
+            const rect =
+                page.getBoundingClientRect();
+
+            const pageMiddle =
+                rect.top + rect.height / 2;
+
+            const distance =
+                Math.abs(pageMiddle - screenMiddle);
+
+            if (distance < smallestDistance) {
+
+                smallestDistance = distance;
+                currentPage = index;
+
+            }
+
+        });
+
+
+        if (currentPage > 0) {
+
+            pages[currentPage - 1].scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+    });
+
+
+    mobileRightZone.addEventListener("click", () => {
+
+        const pages =
+            document.querySelectorAll("#pages img");
+
+        if (pages.length === 0) return;
+
+
+        let currentPage = 0;
+        let smallestDistance = Infinity;
+
+        const screenMiddle =
+            window.innerHeight / 2;
+
+
+        pages.forEach((page, index) => {
+
+            const rect =
+                page.getBoundingClientRect();
+
+            const pageMiddle =
+                rect.top + rect.height / 2;
+
+            const distance =
+                Math.abs(pageMiddle - screenMiddle);
+
+            if (distance < smallestDistance) {
+
+                smallestDistance = distance;
+                currentPage = index;
+
+            }
+
+        });
+
+
+        if (currentPage < pages.length - 1) {
+
+            pages[currentPage + 1].scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+    });
+
+}
