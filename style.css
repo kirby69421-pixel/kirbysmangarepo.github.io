@@ -136,3 +136,86 @@ a{
 
 
 }
+/* =========================================
+   MOBILE MANGADEX-STYLE READER
+   ========================================= */
+
+#readerArea {
+    position: relative;
+}
+
+/* Hidden on PC */
+#mobileLeftZone,
+#mobileRightZone {
+    display: none;
+}
+
+
+/* =========================================
+   MOBILE ONLY
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    #readerArea {
+        position: relative;
+        width: 100%;
+    }
+
+    /*
+       Keep the existing reader images,
+       but make them fill the mobile width.
+    */
+
+    #pages {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #pages img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*
+       Invisible tap zones.
+
+       Left 50% = previous page
+       Right 50% = next page
+    */
+
+    #mobileLeftZone,
+    #mobileRightZone {
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        z-index: 100;
+    }
+
+    #mobileLeftZone {
+        left: 0;
+    }
+
+    #mobileRightZone {
+        right: 0;
+    }
+
+    /*
+       Don't accidentally highlight/select
+       things while tapping.
+    */
+
+    #mobileLeftZone,
+    #mobileRightZone {
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+}
