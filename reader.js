@@ -1,3 +1,4 @@
+const IMAGE_HOST = "https://pub-1a1df4914e3e45ac98f3c294515cbbb1.r2.dev";
 let manga;
 let chapter;
 
@@ -83,8 +84,7 @@ function loadReader(){
 
         let chapterFolder = `chapter ${chapter}`;
         
-        img.src =
-        `manga/${manga}/${chapterFolder}/image${String(i).padStart(3,"0")}.webp`;
+        img.src = `${IMAGE_HOST}/manga/${manga}/chapter ${chapter}/image${String(i).padStart(3,"0")}.webp`;
         console.log(img.src);
 
         pages.appendChild(img);
