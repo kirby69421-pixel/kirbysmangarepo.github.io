@@ -1,0 +1,138 @@
+:root {
+
+    --background:#111;
+    --text:#eee;
+    --card:#222;
+
+}
+
+
+.light {
+
+    --background:#fff;
+    --text:#111;
+    --card:#ddd;
+
+}
+
+
+
+body{
+
+    background:var(--background);
+    color:var(--text);
+
+    font-family:Arial;
+
+    margin:0;
+
+}
+
+
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    background:var(--background);
+
+    padding:15px;
+
+    display:flex;
+
+    gap:10px;
+
+    justify-content:center;
+
+    z-index:10;
+
+}
+
+
+
+button,select{
+
+    padding:8px;
+
+}
+
+
+
+main{
+
+    padding:20px;
+
+}
+
+
+
+.manga{
+
+    background:var(--card);
+
+    padding:20px;
+
+    margin:15px;
+
+    border-radius:10px;
+
+}
+
+
+
+a{
+
+    color:var(--text);
+
+}
+
+
+
+/* Reader */
+
+#pages{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+#pages img{
+
+    max-width:900px;
+
+    width:100%;
+
+    display:block;
+
+}
+
+
+
+/* Mobile MangaDex style */
+
+@media(max-width:600px){
+
+
+#pages{
+
+    overflow:hidden;
+
+}
+
+
+#pages img{
+
+    width:100%;
+
+}
+
+
+}
