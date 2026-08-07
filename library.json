@@ -40,6 +40,10 @@
                 "pages": 20
             },
             "107": {
+                "folder": "chapter 107",
+                "pages": 20
+            },
+            "107.5": {
                 "folder": "chapter 107.5",
                 "pages": 12
             },
@@ -399,9 +403,13 @@
                 "folder": "chapter 188",
                 "pages": 20
             },
-            "189": {
+            "189.5": {
                 "folder": "chapter 189.5",
                 "pages": 7
+            },
+            "189": {
+                "folder": "chapter 189",
+                "pages": 20
             },
             "19": {
                 "folder": "chapter 19",
