@@ -76,13 +76,17 @@ function loadReader(){
 
 
 
-    for(let i=1;i<=count;i++){
+    for(let i=0;i<=count;i++){
 
         let img=document.createElement("img");
 
 
+        let chapterFolder =
+        chapters[chapter].folder;
+        
+        
         img.src =
-        `manga/${manga}/Chapter ${chapter}/${String(i).padStart(3,"0")}.webp`;
+        `manga/${manga}/${chapterFolder}/image${String(i).padStart(3,"0")}.webp`;
 
 
         pages.appendChild(img);
