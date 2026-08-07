@@ -1,0 +1,12 @@
+{
+    "Example Manga": {
+        "chapters": {
+            "1": {
+                "pages": 3
+            },
+            "2": {
+                "pages": 2
+            }
+        }
+    }
+}
