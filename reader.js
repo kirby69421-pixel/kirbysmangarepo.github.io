@@ -82,7 +82,7 @@ function loadReader(){
 
 
         img.src =
-        `manga/${manga}/Chapter ${chapter}/${String(i).padStart(3,"0")}.jpg`;
+        `manga/${manga}/Chapter ${chapter}/${String(i).padStart(3,"0")}.webp`;
 
 
         pages.appendChild(img);
